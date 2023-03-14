@@ -52,3 +52,5 @@ npm start
 ```
 
 O frontend irá iniciar um servidor local na porta 3000. (http://localhost:3000)
+
+Video seguindo passo a passo: https://youtu.be/dsKsy3x4MQo

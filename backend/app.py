@@ -17,19 +17,14 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 
 
+# Salva os dados dos usuários em um arquivo CSV, Pode excluir essa rota caso não queira o arquivo csv.
 @app.route("/save_users")
 def save_users():
-    # Fazer uma requisição GET para a API
     response = requests.get("https://fakestoreapi.com/users")
-    # Verificar se a resposta foi bem sucedida
     if response.status_code == 200:
-        # Obter os dados em formato JSON
         data = response.json()
-        # Abrir um arquivo CSV para escrita
         with open("users.csv", "w") as f:
-            # Criar um objeto writer para escrever os dados no CSV
             writer = csv.writer(f)
-            # Escrever o cabeçalho com os nomes dos campos
             writer.writerow(
                 [
                     "id",
@@ -39,7 +34,6 @@ def save_users():
                     "phone",
                 ]
             )
-            # Iterar sobre os dados e escrever cada usuário no CSV
             for user in data:
                 writer.writerow(
                     [
@@ -50,11 +44,8 @@ def save_users():
                         user["phone"],
                     ]
                 )
-        # Criar uma conexão com o banco de dados users.db
         conn = sqlite3.connect("users.db")
-        # Criar um cursor para executar comandos SQL
         cur = conn.cursor()
-        # Criar a tabela users com os campos id, username, email, address e phone
         cur.execute(
             """
             CREATE TABLE IF NOT EXISTS users (
@@ -82,14 +73,10 @@ def save_users():
             for user in data
         ]
         cur.executemany("INSERT INTO users VALUES (?,?,?,?,?,?,?)", users)
-        # Salvar as alterações no banco de dados
         conn.commit()
-        # Fechar a conexão com o banco de dados
         conn.close()
-        # Retornar uma mensagem de sucesso
         return "Os usuários foram salvos em users.csv e users.db"
     else:
-        # Retornar uma mensagem de erro
         return f"Erro ao obter os usuários: {response.status_code}"
 
 
@@ -116,6 +103,7 @@ def create_user():
     return jsonify({"id": user_id}), 201
 
 
+# Retorna todos os usuários
 @app.route("/users", methods=["GET"])
 def get_users():
     conn = sqlite3.connect("users.db")
@@ -132,6 +120,7 @@ def get_users():
     return jsonify(users_dict)
 
 
+# Retorna um usuário específico
 @app.route("/users/<int:id>")
 def get_user_by_id(id):
     conn = sqlite3.connect("users.db")

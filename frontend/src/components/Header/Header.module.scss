@@ -1,0 +1,41 @@
+@import 'styles/_variaveis';
+
+.menu {
+  display: flex;
+  padding: 20px 250px;
+
+  &__logo {
+    cursor: pointer;
+    font-size: 35px;
+    margin-top: 7px;
+    opacity: 0.6;
+    transition: 0.5s;
+  }
+
+  &__logo:hover {
+    font-weight: bold;
+    color: $black;
+    opacity: 0.8;
+  }
+
+  &__list {
+    align-items: center;
+    display: flex;
+  }
+
+  &__link {
+    list-style-type: none;
+    display: inline;
+    padding: 0 20px;
+  }
+
+  a {
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: .1s ease;
+    color: $black;
+  }
+}

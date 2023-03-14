@@ -1,0 +1,17 @@
+@import 'styles/_variaveis';
+
+.usuario {
+  cursor: pointer;
+  background-color: $beige;
+  padding: 25px;
+  margin-bottom: 10px;
+  transition: 0.5s;
+  &__name {
+    font-size: 20px;
+  }
+}
+
+.usuario:hover {
+  background-color: $teal;
+  color: $white;
+}

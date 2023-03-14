@@ -25,6 +25,24 @@ flask run
 ```
 O backend irá iniciar um servidor local na porta 5000. (http://localhost:5000)
 
+obs. Se estiver em um ambiente Windows e está problemas para iniciar o ambiente virtual do python com o comando acima, use:
+
+Para criar o ambiente:
+
+```bash 
+py -3 -m venv venv 
+
+```
+Para ativar o ambiente:
+
+```bash 
+venv\Scripts\activate
+
+```
+
+Documentação de instalação do flask caso ainda tenha problemas: https://flask.palletsprojects.com/en/2.2.x/installation/
+
+
 ### Instalando e executando o React
 Abra um novo terminal ou faça pelo vscode, siga os passos abaixo. (na janela do outro terminal estará rodando o backend na porta local: 5000)
 ```bash

@@ -47,8 +47,9 @@ Documentação de instalação do flask caso ainda tenha problemas: https://flas
 Abra um novo terminal ou faça pelo vscode, siga os passos abaixo. (na janela do outro terminal estará rodando o backend na porta local: 5000)
 ```bash
 cd front-end
-npm install
-npm start
+yarn install ou npm install
+yarn update ou npm update
+yarn start ou npm start
 ```
 
 O frontend irá iniciar um servidor local na porta 3000. (http://localhost:3000)

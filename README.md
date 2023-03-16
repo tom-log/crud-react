@@ -48,7 +48,7 @@ Abra um novo terminal ou faça pelo vscode, siga os passos abaixo. (na janela do
 ```bash
 cd front-end
 yarn install ou npm install
-yarn update ou npm update
+yarn upgrade ou npm update
 yarn start ou npm start
 ```
 
